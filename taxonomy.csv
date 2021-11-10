@@ -1,0 +1,112 @@
+﻿Level I,Level II,Level III
+Attach,Attach permanently,
+,Attach temporarily,
+,,
+Modify color/camouflage,Change structural color,
+,Change chemical color/pigmentation,
+,Camouflage/mimicry,
+,,
+Modify size/shape/material properties,Change size/shape,
+,Change material properties,combined 'optimize' and 'change material properties'
+,,
+Modify or convert energy,Modify/convert electrical energy,
+,Modify/convert magnetic energy,
+,Modify/convert chemical energy,
+,Modify/convert mechanical energy,
+,Modify/convert thermal energy,
+,Modify/convert light energy,
+,,
+Assemble or break down structure,Physically assemble structure,
+,Break down structure,
+,,
+"Move on/through solids, liquids, or gases",Passive movement,Passively move through/on solids
+,,Passively move through/on liquids
+,,Passively move through gases
+,,Passively move through/on granular media
+,Active movement,Actively move through/on solids
+,,Actively move through/on liquids
+,,Actively move through gases
+,,Actively move through/on granular media
+,,
+Protect from living or non-living threats,Protect from living threats,Protect from animals
+,,Protect from plants
+,,Protect from fungi
+,,Protect from microbes
+,Protect from non-living threats,Protect from solids
+,,Protect from excess liquids
+,,Protect from loss of liquids
+,,Protect from gases
+,,Protect from wind
+,,Protect from temperature
+,,Protect from fire
+,,Protect from ice
+,,Protect from light
+,,Protect from chemicals
+,,Protect from radiation
+,,
+Manage mechanical forces,Manage external forces,Manage impact
+,,Regulate drag/turbulence
+,Manage stress/strain,Prevent buckling
+,,Prevent fracture/rupture
+,,Manage shear
+,,Prevent or allow deformation
+,Prevent degradation,Prevent fatigue
+,,Control erosion
+,,Regulate wear
+,,
+Sustain ecological community,Individual benefit,Regulate reproduction or growth
+,,Self-replicate
+,,Maintain homeostasis/equillibrium
+,Group benefit,Coordinate by self-organization
+,,Cooperate within or between species
+,,Compete within or between species
+,,Manage environmental disturbances
+,,Manage populations or habitats
+,,Manage pests or diseases
+,,Maintain biodiversity
+,,
+Chemically assemble or break down,Chemically assemble,Chemically assemble inorganic compounds
+,,Chemically assemble organic compounds
+,,Self-assemble
+,Chemically break down,Chemically break down inorganic compounds
+,,Chemically break down organic compounds
+,,
+"Sense, send, or process information",Send signals,Send light signals in the visible spectrum
+,,Send light signals in the non-visible spectrum
+,,Send sound signals
+,,Send tactile signals
+,,Send chemical signals 
+,,Send vibratory signals
+,,Send electrical/magnetic signals
+,Process signals,Differentiate signal from noise
+,,Convert signals
+,,Respond to signals
+,Sense signals/environmental cues,Sense light in the visible spectrum
+,,Sense light in the non-visible spectrum
+,,Sense electricity/magnetism
+,,Sense disease in a living system
+,,Sense touch and mechanical forces
+,,Sense chemicals 
+,,Sense atmospheric conditions
+,,Sense sound/vibrations
+,,Sense temperature cues
+,,Sense motion
+,,Sense spatial awareness/balance/orientation
+,,Sense shape and/or pattern
+,,
+"Manipulate solids, liquids, gases, or energy",Capture resources,Capture solids
+,,Capture liquids
+,,Capture gases
+,,Capture energy
+,Absorb and/or filter resources,Absorb and/or filter solids
+,,Absorb and/or filter liquids
+,,Absorb and/or filter gases
+,Store resources,Store solids
+,,Store liquids
+,,Store gases
+,,Store energy
+,Distribute or expel resources,Distribute or expel solids
+,,Distribute or expel liquids
+,,Distribute or expel gases
+,,Distribute or expel energy
+,Detox/purify,
