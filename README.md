@@ -4,10 +4,10 @@ Please fork this repository and paste the github link of your fork on Microsoft 
 
 # Evaluation Measures
 
-| Run ID  | Model               | MAP   | gMAP  | Description                                                                                                                           |
-| ------- | ------------------- | ----- | ------| ------------------------------------------------------------------------------------------------------------------------------------- |
-| 1a      | bart-large-mnli     | .29   | .28   | 50 papers from each label. 500 total.                                                                                                 |
-| 1b      | scibert             | .64   | .64   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| Run ID  | Model                          | MAP   | gMAP  | Description                                                                                                                           |
+| ------- | ------------------------------ | ----- | ------| ------------------------------------------------------------------------------------------------------------------------------------- |
+| 1a      | facebook/bart-large-mnli       | .29   | .28   | (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
+| 1b      | allenai/scibert_scivocab_cased | .64   | .64   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
 
 
 ## Average Precision by Topic
