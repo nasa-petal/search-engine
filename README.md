@@ -8,7 +8,7 @@ Please fork this repository and paste the github link of your fork on Microsoft 
 | ------- | ------------------------------ | ----- | ------| ------------------------------------------------------------------------------------------------------------------------------------- |
 | 1a      | facebook/bart-large-mnli       | .29   | .28   | (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
 | 1b      | allenai/scibert_scivocab_cased | .64   | .64   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 1c      | bert_base_cased                | ?     | ?     | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| 1c      | bert_base_cased                | .48   | .47   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
 
 ## Average Precision by Topic
 
@@ -16,4 +16,4 @@ Please fork this repository and paste the github link of your fork on Microsoft 
 | ------- | ---------------------------------- | ----------------- | --------------------------------- | ---------------------------------------- | ----------------------------- | ------ | ---- | ----------------- | ---------------------------- | -------------------- |
 | 1a      | .20                                | .39               | .22                               | .24                                      | .29                           | .46    | .34  | .33               | .29                          | .19                  |
 | 1b      | .46                                | .60               | .78                               | .54                                      | .65                           | .65    | .71  | .71               | .70                          | .65                  |
-| 1c      | .                                | .               | .                               | .                                      | .                           | .    | .  | .               | .                          | .                  |
+| 1c      | .37                                | .59               | .68                               | .33                                      | .50                           | .32    | .54  | .57               | .50                          | .42                  |
