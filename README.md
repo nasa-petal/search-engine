@@ -4,6 +4,8 @@ Please fork this repository and paste the github link of your fork on Microsoft 
 
 # Evaluation Measures
 
+MAP > .5 is probably shippable.
+
 | Run ID | Model                            | MAP   | gMAP  | Description                                                                                                                           |
 | ------ | -------------------------------- | ----- | ------| ------------------------------------------------------------------------------------------------------------------------------------- |
 | 1      | facebook/bart-large-mnli         | .29   | .28   | (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
