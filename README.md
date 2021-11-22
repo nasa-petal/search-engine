@@ -4,11 +4,12 @@ Please fork this repository and paste the github link of your fork on Microsoft 
 
 # Evaluation Measures
 
-| Run ID | Model                          | MAP   | gMAP  | Description                                                                                                                           |
-| ------ | ------------------------------ | ----- | ------| ------------------------------------------------------------------------------------------------------------------------------------- |
-| 1      | facebook/bart-large-mnli       | .29   | .28   | (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
-| 2      | allenai/scibert_scivocab_cased | .64   | .64   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 3      | bert_base_cased                | .48   | .47   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| Run ID | Model                            | MAP   | gMAP  | Description                                                                                                                           |
+| ------ | -------------------------------- | ----- | ------| ------------------------------------------------------------------------------------------------------------------------------------- |
+| 1      | facebook/bart-large-mnli         | .29   | .28   | (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
+| 2      | allenai/scibert_scivocab_cased   | .64   | .64   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| 3      | allenai/scibert_scivocab_uncased | .71   | .70   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| 4      | bert_base_cased                  | .48   | .47   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
 
 ## Average Precision by Topic
 
@@ -16,4 +17,5 @@ Please fork this repository and paste the github link of your fork on Microsoft 
 | ------ | ---------------------------------- | ----------------- | --------------------------------- | ---------------------------------------- | ----------------------------- | ------ | ---- | ----------------- | ---------------------------- | -------------------- |
 | 1      | .20                                | .39               | .22                               | .24                                      | .29                           | .46    | .34  | .33               | .29                          | .19                  |
 | 2      | .46                                | .60               | .78                               | .54                                      | .65                           | .65    | .71  | .71               | .70                          | .65                  |
-| 3      | .37                                | .59               | .68                               | .33                                      | .50                           | .32    | .54  | .57               | .50                          | .42                  |
+| 3      | .51                                | .67               | .84                               | .69                                      | .73                           | .75    | .76  | .70               | .72                          | .69                  |
+| 4      | .37                                | .59               | .68                               | .33                                      | .50                           | .32    | .54  | .57               | .50                          | .42                  |
