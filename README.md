@@ -1,6 +1,49 @@
-# CourseProject
+# Text Retrieval for biomimicry function identification in a corpus of biology papers
 
-Please fork this repository and paste the github link of your fork on Microsoft CMT. Detailed instructions are on Coursera under Week 1: Course Project Overview/Week 9 Activities.
+
+## Rubric for final submissions
+
+For all other topics, the rubrics are:    
+No source code submitted -- 0 pts.   
+Source code submitted with some missing files -- 5 pts.   
+Complete source code submitted -- 10 pts.   
+
+At the final stage of your project, you need to deliver the following:    
+Your documented source code and main results.    
+Self-evaluation. Have you completed what you have planned? Have you got the expected outcome? If not, discuss why.    
+A demo that shows your code can actually run and generate the desired results. If there is a training process involved, you don’t need to show that process during the demo. If your code takes too long to run, try to optimize it, or write some intermediate results (e.g. inverted index, trained model parameters, etc.) to disk beforehand.
+
+11. [FINAL] Documentation: score (0-2).   
+This part is graded based on completion.    
+No documentation submitted (0 pts).   
+Documentation submitted with some missing details, either setup or other questions (1 pt).   
+Documentation submitted with all details (2 pts).   
+
+12. [FINAL] Please provide feedback on the Software usage tutorial. Is it submitted?    
+Please describe the results of testing the code. What were your inputs/outputs? Was the testing successful? If not, did you set up a live demo session, and was it successful?
+
+13. [FINAL] Software usage tutorial presentation: score (0-2).   
+Presentation not submitted AND Testing was unsuccessful (0 pts).   
+Only presentation submitted OR only testing was successful (1 pt).   
+Presentation submitted AND successful testing (2 pts).   
+
+7. Software code submission with documentation (65%, due end of Week 15, Dec 09 2021)
+
+Each team must submit the software code produced for the project along with a written documentation. The documentation should consist of the following elements: 1) An overview of the function of the code (i.e., what it does and what it can be used for). 2) Documentation of how the software is implemented with sufficient detail so that others can have a basic understanding of your code for future extension or any further improvement. 3) Documentation of the usage of the software including either documentation of usages of APIs or detailed instructions on how to install and run a software, whichever is applicable. 4) Brief description of contribution of each team member in case of a multi-person team. Note that if you are in a team, it is your responsibility to figure out how to contribute to your group project, so you will need to act proactively and in a timely manner if your group coordinator has not assigned a task to you. There will be no opportunity to make up for any task that you failed to accomplish. In general, all the members of a team will get the same grade for the project unless the documentation submission indicates that some member(s) only superficially participated in the project without doing much actual work; in that case, we will discount the grade. Everyone is expected to spend at least 20 hours to seriously work on your course project as a minimum, not including the time spent for preparing the documentation.
+
+The 65% of the grade would be distributed as follows: 45% for source code submission; 20% for documentation submission. The 20% for the documentation submission includes 5% for overview of functions, 10% for implementation documentation, 5% for usage documentation. There is no strict length requirement for the documentation.
+
+8. Software usage tutorial presentation (20%, due end of Week 15, Dec 09 2021)
+
+At the end of the semester, every project team will be asked to submit a short tutorial presentation (e.g., a voiced ppt presentation) to explain how the developed software is to be used. The presentation must include (1) sufficient instructions on how to install the software if applicable, (2) sufficient instructions on how to use the software, and (3) at least one example of use case so as to allow a grader to use the provided use case to test the software. There is no strict length requirement for this video submission, but you should target at 5~10 minutes. A presentation shorter than 5 minutes is unlikely detailed enough to help users understand how to use the software, whereas a longer video than 10 minutes might be too long for impatient users. However, feel free to produce a longer presentation if needed.
+
+The tutorial presentation would be graded based on
+
+1) completion of the presentation (10%); and
+
+2) result of testing the software by graders (10%).
+
+If the software passes the test (i.e., is working as expected), full points will be given; otherwise, points will be deducted from the 10% allocated to the “result of testing the software by graders.”
 
 # Evaluation Measures
 
