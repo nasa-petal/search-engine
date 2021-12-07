@@ -6,13 +6,14 @@ Please fork this repository and paste the github link of your fork on Microsoft 
 
 MAP > .5 is probably shippable.
 
-| Run ID | Model                            | MAP   | gMAP  | Description                                                                                                                           |
-| ------ | -------------------------------- | ----- | ------| ------------------------------------------------------------------------------------------------------------------------------------- |
-| 1      | facebook/bart-large-mnli         | .29   | .28   | (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
-| 2      | allenai/scibert_scivocab_cased   | .64   | .64   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 3      | allenai/scibert_scivocab_uncased | .71   | .70   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 4      | bert_base_cased                  | .48   | .47   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 5      | bert_base_uncased                | .53   | .51   | same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| Run ID | Model                            | MAP   | gMAP  | Description                                                                                                                                                                  |
+| ------ | -------------------------------- | ----- | ------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1      | facebook/bart-large-mnli         | .29   | .28   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
+| 2      | allenai/scibert_scivocab_cased   | .64   | .64   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| 3      | allenai/scibert_scivocab_uncased | .71   | .70   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
+| 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning.                                                           |
 
 
 ## Average Precision by Topic
