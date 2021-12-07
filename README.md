@@ -43,7 +43,7 @@ Brendan Lynch –
 | 3      | allenai/scibert_scivocab_uncased | .71   | .70   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
 | 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
 | 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
-| 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning. Not directly comparable to other runs due to different training set sizes.  |
+| 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning.                                                                             |
 
 ### Average Precision by Topic
 
