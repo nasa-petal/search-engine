@@ -1,5 +1,85 @@
 # Text Retrieval for biomimicry function identification in a corpus of biology papers
 
+## Overview
+
+This repository contains code that performs multi-label text classification on a corpus of biology papers using a variety of classifiers. Each classifier generates a MAP score for comparison.
+
+## File Structure
+
+`golden.json` original dataset of biology papers
+
+`Data-Analaysis-of-the-PeTaL-Labeled-Dataset.ipynb` shows some metrics of the data (Modification of original work by: David Smith)
+
+`data-exploration-and-cleaning.ipynb` additional data exploration and cleaning. This generates the files in the `data` folder
+
+`data/cleaned.csv` data cleaned and prepared for classification.
+
+`transformers-zs-nli-and-scibert.ipynb` compares two classifiers, bart-large-mnli, and scibert.
+
+`linear-svm.ipynb` classifies using LinearSVC classifier.
+
+## How to Use
+
+`transformers-zs-nli-and-scibert.ipynb` can be loaded in Colab. Setting the runtime to GPU will enable faster model training and predictions. All the cells can be run in order. After running the first cell, you may see a button in the cell output to restart the runtime. This should be done. Final scores are computed at the bottom of the notebook. To just run one of the two models, for example SciBERT, don't run the cells with comment labels at the top of the cell containing 'bart-large-mnli'. SciBERT training and predictions can be made faster by reducing the number of k-fold splits. The code line where this can be done can be found by searching the notebook for the comment labelled 'CONFIG'.
+
+`linear-svm.ipynb` can be loaded in Colab. This model does not use a GPU. All the cells can be run in order. After running the first cell, you may see a button in the cell output to restart the runtime. This should be done. The final MAP score is computed at the bottom of the notebook.
+
+## Team Member Contributions
+
+Brandon Ruffridge – `data-exploration-and-cleaning.ipynb`, `transformers-zs-nli-and-scibert.ipynb`, `linear-svm.ipynb`
+
+Christian Ortiz – 
+
+Jay Kim – 
+
+Brendan Lynch – 
+
+
+## Results
+
+| Run ID | Model                            | MAP   | gMAP  | Description                                                                                                                                                                                    |
+| ------ | -------------------------------- | ----- | ------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1      | facebook/bart-large-mnli         | .29   | .28   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total.                                                                                            |
+| 2      | allenai/scibert_scivocab_cased   | .64   | .64   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
+| 3      | allenai/scibert_scivocab_uncased | .71   | .70   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
+| 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
+| 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
+| 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning. Not directly comparable to other runs due to different training set sizes.  |
+
+### Average Precision by Topic
+
+| Run ID | physically_assemble_or_disassemble | protect_from_harm | sense_send_or_process_information | chemically_modify_or_change_energy_state | maintain_structural_integrity | attach | move | process_resources | sustain_ecological_community | change_size_or_color |
+| ------ | ---------------------------------- | ----------------- | --------------------------------- | ---------------------------------------- | ----------------------------- | ------ | ---- | ----------------- | ---------------------------- | -------------------- |
+| 1      | .20                                | .39               | .22                               | .24                                      | .29                           | .46    | .34  | .33               | .29                          | .19                  |
+| 2      | .46                                | .60               | .78                               | .54                                      | .65                           | .65    | .71  | .71               | .70                          | .65                  |
+| 3      | .51                                | .67               | .84                               | .69                                      | .73                           | .75    | .76  | .70               | .72                          | .69                  |
+| 4      | .37                                | .59               | .68                               | .33                                      | .50                           | .32    | .54  | .57               | .50                          | .42                  |
+| 5      | .33                                | .59               | .78                               | .45                                      | .56                           | .36    | .70  | .46               | .54                          | .50                  |
+
+## Evaluation
+
+bart-large-mnli performed the worst. Even with little training data BERT and SciBERT were better. SciBERT outperformed BERT, most likely due to SciBERT being trained on scientific literature which is what our corpus is. A shallow model, LinearSVC, performed surprisingly well, but it was trained on the full dataset which is twice as large as SciBERT was trained on. With more training data SciBERT would likely have performed better, but due to training time constraints only half the dataset was used.
+
+## Future Work
+
+Train SciBERT on the full dataset using the same MultilabelStratifiedKfold technique used with LinearSVC. This was attemped using bert-sklearn. But multi-label classification is not supported (https://github.com/charles9n/bert-sklearn/issues/9). The workaround, using a separate BERT classifier for each class combined with sklearn's OneVsRestClassifier, consumed all of the available Colab memory so could not be evaluated.
+
+Try out some of these approaches:
+
+Giannis Karamanolakis, Subhabrata Mukherjee, Guoqing Zheng, and Ahmed Hassan Awadallah.
+2021. Self-training with weak supervision.
+
+Dheeraj Mekala, Xinyang Zhang, and Jingbo Shang. 2020. META: Metadata-empowered weak
+supervision for text classification.
+
+Timo Schick and Hinrich Sch¨utze. 2021. Exploiting cloze-questions for few-shot text classification
+and natural language inference.
+
+Zihan Wang, Dheeraj Mekala, and Jingbo Shang. 2021. X-class: Text classification with extremely
+weak supervision.
+
+Qizhe Xie, Zihang Dai, Eduard Hovy, Thang Luong, and Quoc Le. 2020. Unsupervised data augmentation
+for consistency training.
 
 ## Rubric for final submissions
 
@@ -52,27 +132,3 @@ Please describe the results of testing the code. What were your inputs/outputs? 
 Presentation not submitted AND Testing was unsuccessful (0 pts).   
 Only presentation submitted OR only testing was successful (1 pt).   
 Presentation submitted AND successful testing (2 pts).   
-
-# Evaluation Measures
-
-MAP > .5 is probably shippable.
-
-| Run ID | Model                            | MAP   | gMAP  | Description                                                                                                                                                                  |
-| ------ | -------------------------------- | ----- | ------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1      | facebook/bart-large-mnli         | .29   | .28   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total.                                                                          |
-| 2      | allenai/scibert_scivocab_cased   | .64   | .64   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 3      | allenai/scibert_scivocab_uncased | .71   | .70   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4  |
-| 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning.                                                           |
-
-
-## Average Precision by Topic
-
-| Run ID | physically_assemble_or_disassemble | protect_from_harm | sense_send_or_process_information | chemically_modify_or_change_energy_state | maintain_structural_integrity | attach | move | process_resources | sustain_ecological_community | change_size_or_color |
-| ------ | ---------------------------------- | ----------------- | --------------------------------- | ---------------------------------------- | ----------------------------- | ------ | ---- | ----------------- | ---------------------------- | -------------------- |
-| 1      | .20                                | .39               | .22                               | .24                                      | .29                           | .46    | .34  | .33               | .29                          | .19                  |
-| 2      | .46                                | .60               | .78                               | .54                                      | .65                           | .65    | .71  | .71               | .70                          | .65                  |
-| 3      | .51                                | .67               | .84                               | .69                                      | .73                           | .75    | .76  | .70               | .72                          | .69                  |
-| 4      | .37                                | .59               | .68                               | .33                                      | .50                           | .32    | .54  | .57               | .50                          | .42                  |
-| 5      | .33                                | .59               | .78                               | .45                                      | .56                           | .36    | .70  | .46               | .54                          | .50                  |
