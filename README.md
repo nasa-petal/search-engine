@@ -15,7 +15,8 @@ This repository contains code that performs multi-label text classification on a
 `data/cleaned.csv` data cleaned and prepared for classification.
 
 `transformers-zs-nli-and-scibert.ipynb` compares the classifiers, bart-large-mnli, and SciBERT.
-`linear-svm.ipynb` classifies using LinearSVC classifier.
+
+`linear-svm.ipynb` classifies using a LinearSVC classifier.
 
 ## How to Use
 
