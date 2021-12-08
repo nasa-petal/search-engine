@@ -15,7 +15,8 @@ This repository contains code that performs multi-label text classification on a
 `data/cleaned.csv` data cleaned and prepared for classification.
 
 `transformers-zs-nli-and-scibert.ipynb` compares the classifiers, bart-large-mnli, and SciBERT.
-`linear-svm.ipynb` classifies using LinearSVC classifier.
+
+`linear-svm.ipynb` classifies using a LinearSVC classifier.
 
 ## How to Use
 
@@ -42,7 +43,7 @@ Brendan Lynch –
 | Run ID | Model                            | MAP   | gMAP  | Description                                                                                                                                                                                    |
 | ------ | -------------------------------- | ----- | ------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1a     | facebook/bart-large-mnli         | .29   | .28   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total.                                                                                            |
-| 1b     | facebook/bart-large-mnli         | .31   | .30   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total. Used different class names.                                                                |
+| 1b     | facebook/bart-large-mnli         | .31   | .30   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total. Reworded the class names slightly.                                                         |
 | 2      | allenai/scibert_scivocab_cased   | .64   | .64   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
 | 3      | allenai/scibert_scivocab_uncased | .71   | .70   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
 | 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
