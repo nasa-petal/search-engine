@@ -12,7 +12,7 @@ This repository contains code that performs multi-label text classification on a
 
 `data-exploration-and-cleaning.ipynb` additional data exploration and cleaning. This generates the files in the `data` folder
 
-`data/cleaned.csv` data cleaned and prepared for classification.
+`data/cleaned.csv` data cleaned and prepared for classification. Columns are present for each label. A 1 means the paper was assigned the lable, 0 means it was not. Column 'y' contains a list of the binary indicators for each labels, and is just a different format from the label columns, used in linear-svc.ipynb.
 
 `transformers-zs-nli-and-scibert.ipynb` compares the classifiers, bart-large-mnli, and SciBERT.
 
