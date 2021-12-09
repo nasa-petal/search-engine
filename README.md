@@ -18,7 +18,7 @@ This repository contains code that performs multi-label text classification on a
 
 `linear-svm.ipynb` classifies using a LinearSVC classifier.
 
-`scibert-ml.ipynb` faster SciBERT classifier, takes less time to train and generate predictions than `transformers-zs-nli-and-scibert.ipynb` most likely due to smaller max_token_length and no k-fold cross validation. Adapted from: https://curiousily.com/posts/multi-label-text-classification-with-bert-and-pytorch-lightning/
+`scibert-ml.ipynb` faster SciBERT classifier, takes less time to train and generate predictions than `transformers-zs-nli-and-scibert.ipynb` most likely due to smaller max_token_length and no k-fold cross validation. Adapted from original work by Venelin Valkov: https://curiousily.com/posts/multi-label-text-classification-with-bert-and-pytorch-lightning/
 
 ## How to Use
 
@@ -33,7 +33,7 @@ This repository contains code that performs multi-label text classification on a
 
 ## Team Member Contributions
 
-Brandon Ruffridge – `data-exploration-and-cleaning.ipynb`, `transformers-zs-nli-and-scibert.ipynb`, `linear-svm.ipynb`
+Brandon Ruffridge – `data-exploration-and-cleaning.ipynb`, `transformers-zs-nli-and-scibert.ipynb`, `linear-svm.ipynb`, `scibert-ml.ipynb` adaptations of original work by Venelin Valkov
 
 Christian Ortiz – 
 
