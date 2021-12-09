@@ -18,6 +18,8 @@ This repository contains code that performs multi-label text classification on a
 
 `linear-svm.ipynb` classifies using a LinearSVC classifier.
 
+`scibert-ml.ipynb` faster SciBERT classifier, takes less time to train and generate predictions than `transformers-zs-nli-and-scibert.ipynb` most likely due to smaller max_token_length and no k-fold cross validation. Adapted from: https://curiousily.com/posts/multi-label-text-classification-with-bert-and-pytorch-lightning/
+
 ## How to Use
 
 `transformers-zs-nli-and-scibert.ipynb` can be loaded in Colab. Setting the runtime to GPU will enable faster model training and predictions. All the cells can be run in order. After running the first cell, you may see a button in the cell output to restart the runtime. This should be done. Final scores are computed at the bottom of the notebook. To just run one of the two models, for example SciBERT, don't run the cells with comment labels at the top of the cell containing 'bart-large-mnli'. SciBERT training and predictions can be made faster by reducing the number of k-fold splits. The code line where this can be done can be found by searching the notebook for the comment labelled 'CONFIG'. To replace SciBERT with BERT, uncomment the two lines marked with 'CONFIG' comments.
@@ -26,6 +28,8 @@ This repository contains code that performs multi-label text classification on a
 * SciBERT takes about 2 hours to train and generate 500 predictions
 
 `linear-svm.ipynb` can be loaded in Colab. This model does not use a GPU. All the cells can be run in order. After running the first cell, you may see a button in the cell output to restart the runtime. This should be done. The final MAP score is computed at the bottom of the notebook.
+
+`scibert-ml.ipynb` can be loaded in Colab. This model requires a GPU. All the cells can be run in order. Training only takes ~20 minutes. The final MAP score is computed at the bottom of the notebook.
 
 ## Team Member Contributions
 
@@ -44,10 +48,11 @@ Brendan Lynch –
 | ------ | -------------------------------- | ----- | ------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1a     | facebook/bart-large-mnli         | .29   | .28   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total.                                                                                            |
 | 1b     | facebook/bart-large-mnli         | .31   | .30   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total. Reworded the class names slightly.                                                         |
-| 2      | allenai/scibert_scivocab_cased   | .64   | .64   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
-| 3      | allenai/scibert_scivocab_uncased | .71   | .70   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
-| 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
-| 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4                    |
+| 2      | allenai/scibert_scivocab_cased   | .64   | .64   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
+| 3a     | allenai/scibert_scivocab_uncased | .71   | .70   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
+| 3b     | allenai/scibert_scivocab_uncased | .67   | .66   | scibert-ml.ipynb. All ~1000 papers in data/cleaned.csv. split into training and validation (90/10 split) using multi-label stratification to preserve class distributions in both splits. 8 epochs, train_batch_size=12, validation_batch_size=12, max_token_length=256                    |
+| 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
+| 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
 | 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning.                                                                             |
 
 ### Average Precision by Topic
@@ -57,7 +62,8 @@ Brendan Lynch –
 | 1a     | .20                                | .39               | .22                               | .24                                      | .29                           | .46    | .34  | .33               | .29                          | .19                  |
 | 1b     | .21                                | .43               | .30                               | .30                                      | .33                           | .23    | .27  | .40               | .30                          | .28                  |
 | 2      | .46                                | .60               | .78                               | .54                                      | .65                           | .65    | .71  | .71               | .70                          | .65                  |
-| 3      | .51                                | .67               | .84                               | .69                                      | .73                           | .75    | .76  | .70               | .72                          | .69                  |
+| 3a     | .51                                | .67               | .84                               | .69                                      | .73                           | .75    | .76  | .70               | .72                          | .69                  |
+| 3b     | .47                                | .58               | .76                               | .68                                      | .61                           | .76    | .78  | .72               | .65                          | .67                  |
 | 4      | .37                                | .59               | .68                               | .33                                      | .50                           | .32    | .54  | .57               | .50                          | .42                  |
 | 5      | .33                                | .59               | .78                               | .45                                      | .56                           | .36    | .70  | .46               | .54                          | .50                  |
 
@@ -66,8 +72,6 @@ Brendan Lynch –
 bart-large-mnli performed the worst. Even with little training data BERT and SciBERT were better. SciBERT outperformed BERT, most likely due to SciBERT being trained on scientific literature which is what our corpus is. A shallow model, LinearSVC, performed surprisingly well, but it was trained on the full dataset which is twice as large as SciBERT was trained on. With more training data SciBERT would likely have performed better, but due to training time constraints only half the dataset was used.
 
 ## Future Work
-
-Train SciBERT on the full dataset using the same MultilabelStratifiedKfold technique used with LinearSVC. This was attemped using bert-sklearn. But multi-label classification is not supported (https://github.com/charles9n/bert-sklearn/issues/9). The workaround, using a separate BERT classifier for each class combined with sklearn's OneVsRestClassifier, consumed all of the available Colab memory so could not be evaluated.
 
 Try out some of these approaches:
 
