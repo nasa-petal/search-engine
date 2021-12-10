@@ -53,7 +53,7 @@ Brendan Lynch –
 | 3b     | allenai/scibert_scivocab_uncased | .67   | .66   | scibert-ml.ipynb. All ~1000 papers in data/cleaned.csv. split into training and validation (90/10 split) using multi-label stratification to preserve class distributions in both splits. 8 epochs, train_batch_size=12, validation_batch_size=12, max_token_length=256                    |
 | 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
 | 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
-| 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning.                                                                             |
+| 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning (75/25).                                                                             |
 
 ### Average Precision by Topic
 
@@ -69,7 +69,7 @@ Brendan Lynch –
 
 ## Evaluation
 
-bart-large-mnli performed the worst. Even with little training data BERT and SciBERT were better. SciBERT outperformed BERT, most likely due to SciBERT being trained on scientific literature which is what our corpus is. A shallow model, LinearSVC, performed surprisingly well, but it was trained on the full dataset which is twice as large as SciBERT was trained on. With more training data SciBERT would likely have performed better, but due to training time constraints only half the dataset was used.
+bart-large-mnli performed the worst. Even with little training data BERT and SciBERT were better. SciBERT outperformed BERT, most likely due to SciBERT being trained on scientific literature which is what our corpus is. A shallow model, LinearSVC, performed surprisingly well. It is unclear why the second SciBERT classifier shown in Run 3b, underperformed the first version, but it could be due to reducing max_token_length to 256. This was necessary because setting it to 512 in the second version consumed all of the available GPU memory in Colab which crashed the runtime.
 
 ## Future Work
 
