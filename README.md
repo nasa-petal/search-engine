@@ -20,6 +20,8 @@ This repository contains code that performs multi-label text classification on a
 
 `scibert-ml.ipynb` faster SciBERT classifier, takes less time to train and generate predictions than `transformers-zs-nli-and-scibert.ipynb` most likely due to smaller max_token_length and no k-fold cross validation. Adapted from original work by Venelin Valkov: https://curiousily.com/posts/multi-label-text-classification-with-bert-and-pytorch-lightning/
 
+`LOTClass` folder contains the [github repo](https://github.com/yumeng5/LOTClass) for the LOTClass implementation. The `petal.sh` file inside the folder will build the model and produce the test output. Creating the dataset viewing output can be done using the `LOTClass.ipynb` file. This model requires a GPU and is still in development phase.
+
 ## How to Use
 
 `transformers-zs-nli-and-scibert.ipynb` can be loaded in Colab. Setting the runtime to GPU will enable faster model training and predictions. All the cells can be run in order. After running the first cell, you may see a button in the cell output to restart the runtime. This should be done. Final scores are computed at the bottom of the notebook. To just run one of the two models, for example SciBERT, don't run the cells with comment labels at the top of the cell containing 'bart-large-mnli'. SciBERT training and predictions can be made faster by reducing the number of k-fold splits. The code line where this can be done can be found by searching the notebook for the comment labelled 'CONFIG'. To replace SciBERT with BERT, uncomment the two lines marked with 'CONFIG' comments.
@@ -31,11 +33,13 @@ This repository contains code that performs multi-label text classification on a
 
 `scibert-ml.ipynb` can be loaded in Colab. This model requires a GPU. All the cells can be run in order. Training only takes ~20 minutes. The final MAP score is computed at the bottom of the notebook.
 
+`LOTClass.ipynb` can be loaded locally to build the datasets for the LOTClass folder. This model requires a GPU. All the cells can be run in order. 
+
 ## Team Member Contributions
 
 Brandon Ruffridge – `data-exploration-and-cleaning.ipynb`, `transformers-zs-nli-and-scibert.ipynb`, `linear-svm.ipynb`, `scibert-ml.ipynb` adaptations of original work by Venelin Valkov
 
-Christian Ortiz – 
+Christian Ortiz – `LOTClass.ipynb`
 
 Jay Kim – 
 
