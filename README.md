@@ -58,6 +58,7 @@ Brendan Lynch –
 | 4      | bert_base_cased                  | .48   | .47   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
 | 5      | bert_base_uncased                | .53   | .51   | transformers-zs-nli-and-scibert.ipynb. same 500 papers. split into 5 folds for training and validation (80/20 split). 2 epochs, train_batch_size=8, validation_batch_size=4, max_token_length=512                    |
 | 6      | OneVsRest/LinearSVC              | .63   |       | linear-svm.ipynb. All ~1000 papers in data/cleaned.csv. 4-fold nested cross validation with hyperparameter tuning (75/25).                                                                             |
+| 7      | Roberta-large-mnli               | .29   | .25   | transformers-zs-nli-and-scibert.ipynb. (pretrained zero-shot) 50 papers from each label. 500 total.                                                                                            |
 
 ### Average Precision by Topic
 
@@ -70,6 +71,7 @@ Brendan Lynch –
 | 3b     | .47                                | .58               | .76                               | .68                                      | .61                           | .76    | .78  | .72               | .65                          | .67                  |
 | 4      | .37                                | .59               | .68                               | .33                                      | .50                           | .32    | .54  | .57               | .50                          | .42                  |
 | 5      | .33                                | .59               | .78                               | .45                                      | .56                           | .36    | .70  | .46               | .54                          | .50                  |
+| 7      | .17                                | .47               | .30                               | .70                                      | .33                           | .14    | .11  | .20               | .18                          | .27                  |
 
 ## Evaluation
 
