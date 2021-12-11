@@ -59,8 +59,11 @@ class LOTClassTrainer(object):
 
     # set up distributed training
     def set_up_dist(self, rank):
+        backend = 'nccl'
+        if sys.platform.startswith('win'):
+            backend = 'gloo'
         dist.init_process_group(
-            backend='nccl',
+            backend=backend,
             init_method=f'tcp://localhost:{self.dist_port}',
             world_size=self.world_size,
             rank=rank
