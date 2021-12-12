@@ -20,7 +20,7 @@ This repository contains code that performs multi-label text classification on a
 
 `scibert-ml.ipynb` faster SciBERT classifier, takes less time to train and generate predictions than `transformers-zs-nli-and-scibert.ipynb` most likely due to smaller max_token_length and no k-fold cross validation. Adapted from original work by Venelin Valkov: https://curiousily.com/posts/multi-label-text-classification-with-bert-and-pytorch-lightning/
 
-`LOTClass` folder contains the [github repo](https://github.com/yumeng5/LOTClass) for the LOTClass implementation. The `petal.sh` file inside the folder will build the model and produce the test output. Creating the dataset viewing output can be done using the `LOTClass.ipynb` file. This model requires a GPU and is still in development phase.
+`LOTClass` folder contains the [github repo](https://github.com/yumeng5/LOTClass) for the LOTClass implementation.  Adapted from original work by Meng, Yu and Zhang, Yunyi and Huang, Jiaxin and Xiong, Chenyan and Ji, Heng and Zhang, Chao and Han, Jiawei. The `petal.sh` file inside the folder will build the model and produce the test output. Creating the dataset viewing output can be done using the `LOTClass.ipynb` file. This model requires a GPU and is still in development phase.
 
 ## How to Use
 
