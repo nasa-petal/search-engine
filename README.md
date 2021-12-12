@@ -43,7 +43,7 @@ Brandon Ruffridge – `data-exploration-and-cleaning.ipynb`, `transformers-zs-nl
 
 Christian Ortiz – `LOTClass.ipynb`
 
-Jay Kim – 
+Jay Kim – `Text Classification.ipynb`
 
 Brendan Lynch – 
 
