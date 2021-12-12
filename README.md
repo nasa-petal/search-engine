@@ -4,6 +4,8 @@
 
 This repository contains code that performs multi-label text classification on a corpus of biology papers using a variety of classifiers. Each classifier generates a MAP score for comparison.
 
+[Watch the tutorial video!](https://mediaspace.illinois.edu/media/t/1_spyrp2cl)
+
 ## File Structure
 
 `golden.json` original dataset of biology papers
