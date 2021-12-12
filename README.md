@@ -45,7 +45,7 @@ Christian Ortiz – `LOTClass.ipynb`
 
 Jay Kim – `Text Classification.ipynb`
 
-Brendan Lynch – 
+Brendan Lynch – roberta-large-mnli
 
 
 ## Results
