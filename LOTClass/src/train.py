@@ -2,40 +2,6 @@
 from trainer import LOTClassTrainer
 import argparse
 
-def run():
-
-    args = {
-        'dataset_dir': 'datasets/agnews/',
-        'label_names_file':'label_names.txt',
-        'train_file': 'train.txt',
-        'test_file': None,
-        'test_label_file': None,
-        'final_model': 'final_model.pt',
-        'out_file': 'out.txt',
-        'eval_batch_size': 128,
-        'train_batch_size': 128,
-        'top_pred_num': 50,
-        'category_vocab_size': 100,
-        'match_threshold': 20,
-        'max_len': 512,
-        'update_interval': 50,
-        'accum_steps': 1,
-        'mcp_epochs': 3,
-        'self_train_epochs': 1,
-        'gpus': 3,
-        'dist_port': 12345
-    }
-    trainer = LOTClassTrainer(args)
-    # Construct category vocabulary
-    trainer.category_vocabulary(top_pred_num=args.top_pred_num, category_vocab_size=args.category_vocab_size)
-    # Training with masked category prediction
-    trainer.mcp(top_pred_num=args.top_pred_num, match_threshold=args.match_threshold, epochs=args.mcp_epochs)
-    # Self-training 
-    trainer.self_train(epochs=args.self_train_epochs, loader_name=args.final_model)
-    # Write test set results
-    if args.test_file is not None:
-        trainer.write_results(loader_name=args.final_model, out_file=args.out_file)
-
 
 def main():
     parser = argparse.ArgumentParser(description='main',
